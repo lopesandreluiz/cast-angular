@@ -1,0 +1,33 @@
+<div class="form-group">
+    <div class="form-group">
+        <label class="form-control">DESCRICAO</label>
+        <input class="form-control" type="text" placeholder="Descricao do Curso">
+    </div>
+
+    <div class="form-group">
+        <label class="form-control">DATA INÍCIO</label>
+        <input class="form-control" type="text" placeholder="data de inicio do curso ex: 01/01/2020" maxlength="10">
+    </div>
+
+    <div class="form-group">
+        <label class="form-control">DATA TÉRMINO</label>
+        <input class="form-control" type="text" placeholder="data de Término do curso ex: 01/01/2020" maxlength="10">
+    </div>
+
+    <div class="form-group">
+        <label class="form-control">CATEGORIA</label>
+        <select class="form-control">
+            <option value="">Selecione uma opção</option>
+            <option *ngFor="let categoria of categorias" value="{{categoria.id}}">{{categoria.descricao}}</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label class="form-control">QTD ALUNOS POR TURMA</label>
+        <input class="form-control" type="number" placeholder="Quantidade de alunos por turma">
+    </div>
+
+    <div class="form-group">
+        <button class="btn btn-success" (click)="salvar()">Inserir</button>
+    </div>
+</div>
