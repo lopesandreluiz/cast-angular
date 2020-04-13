@@ -13,7 +13,7 @@ export class CategoryService {
         return this.http.get<CategoryModel[]>(CategoryEndpoint.getCategories());
     }
 
-    public insertCategory(curso: CategoryModel) : Observable<CategoryModel> {
-        return this.http.post<CategoryModel>(CategoryEndpoint.insertCourse(), curso);
+    public loadCategory(category: CategoryModel) : Observable<CategoryModel> {
+        return this.http.post<CategoryModel>(CategoryEndpoint.loadCategory(), category);
     }
 }

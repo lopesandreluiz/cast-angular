@@ -9,19 +9,19 @@ export class CourseService {
 
     constructor(private http: HttpClient) { }
     
-    public getCursos() : Observable<CourseModel[]> {
-        return this.http.get<CourseModel[]>(CourseEndpoint.getCursos());
+    public getCourses() : Observable<CourseModel[]> {
+        return this.http.get<CourseModel[]>(CourseEndpoint.getCourses());
     }
 
-    public insertCurso(curso: CourseModel) : Observable<CourseModel> {
-        return this.http.post<CourseModel>(CourseEndpoint.insertCurso(), curso);
+    public insertCourse(course: CourseModel) : Observable<CourseModel> {
+        return this.http.post<CourseModel>(CourseEndpoint.insertCourse(), course);
     }
 
-    public alteraCurso(curso: CourseModel) : Observable<CourseModel> {
-        return this.http.put<CourseModel>(CourseEndpoint.alteraCurso(), curso);
+    public alterCourse(course: CourseModel, id : number) : Observable<CourseModel> {
+        return this.http.put<CourseModel>(CourseEndpoint.alterCourse(id), course);
     }
 
-    public deletaCurso(id: number) : Observable<CourseModel> {
-        return this.http.delete<CourseModel>(CourseEndpoint.deletaCurso(id));
+    public deleteCourse(id: number) : Observable<CourseModel> {
+        return this.http.delete<CourseModel>(CourseEndpoint.deleteCourse(id));
     }
 }

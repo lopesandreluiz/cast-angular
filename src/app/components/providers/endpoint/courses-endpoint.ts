@@ -2,19 +2,19 @@ import { environment } from 'src/environments/environment';
 
 export class CourseEndpoint {
 
-    public static getCursos() {
+    public static getCourses() {
         return environment.apiUrl + "course/findAll";
     }
 
-    public static insertCurso() {
-        return environment.apiUrl + "cursos/inserir";
+    public static insertCourse() {
+        return environment.apiUrl + "course/save";
     }
 
-    public static alteraCurso() {
-        return environment.apiUrl + "cursos/alterar";
+    public static alterCourse(courseId: number) {
+        return environment.apiUrl + "course/alter/" + courseId;
     }
 
-    public static deletaCurso(id: number) {
-        return environment.apiUrl + "cursos/deletar/" + id;
+    public static deleteCourse(courseId: number) {
+        return environment.apiUrl + "course/delete/" + courseId;
     }
 }

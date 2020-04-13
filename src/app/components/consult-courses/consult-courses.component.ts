@@ -39,7 +39,7 @@ export class ConsultCoursesComponent implements OnInit {
   }
 
   private getCourses() {
-    this.courseService.getCursos()
+    this.courseService.getCourses()
     .pipe()
     .subscribe(resp => {
       this.courses = resp;
@@ -48,16 +48,16 @@ export class ConsultCoursesComponent implements OnInit {
     })
   }
 
-  public deletaCurso(rowData: CourseModel) {
-    this.courseService.deletaCurso(rowData.id).pipe().subscribe(resp => {
+  public deleteCourse(rowData: CourseModel) {
+    this.courseService.deleteCourse(rowData.id).pipe().subscribe(resp => {
 
     }, erro => {
       console.info("Erro ao deletar Curso " + erro);
     });
   }
 
-  public alteraCurso(event: CourseModel) {
-    this.courseService.alteraCurso(event)
+  public alterCourse(event: CourseModel, rowData: CourseModel) {
+    this.courseService.alterCourse(event, rowData.id)
     .pipe()
     .subscribe(resp => {
       console.info("Curso Alterado com Sucesso " + resp.description);

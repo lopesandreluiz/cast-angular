@@ -11,18 +11,10 @@ import { CategoryService } from '../providers/services/category-service';
 })
 export class CoursesRegistrationComponent implements OnInit {
 
-  categorias: CategoryModel[] = [];
-  curso: CourseModel = new CourseModel();
+  categories: CategoryModel[] = [];
+  course: CourseModel = new CourseModel();
 
-  constructor(private categoriaService: CategoryService, private service: CourseService) {
-    // descomentar a chamada do método e remover o mock das categorias
-    for(let i = 0; i<=5; i++) {
-      let categoria: CategoryModel = new CategoryModel();
-      categoria.id = i;
-      categoria.description = "materia " + i;
-      this.categorias.push(categoria);
-    }
-    // this.getCategorias();
+  constructor(private categoryService: CategoryService, private service: CourseService) {
 
    }
 
@@ -30,7 +22,7 @@ export class CoursesRegistrationComponent implements OnInit {
   }
 
   salvar() {
-    this.service.insertCurso(this.curso)
+    this.service.insertCourse(this.course)
     .pipe()
     .subscribe(resp => {
       console.info("Curso cadastrado com sucesso! id: " + resp.id);
@@ -39,11 +31,11 @@ export class CoursesRegistrationComponent implements OnInit {
     })
   }
 
-  private getCategorias() {
-    this.categoriaService.getCategories()
+  private getCategories() {
+    this.categoryService.getCategories()
     .pipe()
     .subscribe(resp => {
-      this.categorias = resp;
+      this.categories = resp;
     }, erro => {
       console.info("Erro ao carregar as categorias " + erro);
     });
